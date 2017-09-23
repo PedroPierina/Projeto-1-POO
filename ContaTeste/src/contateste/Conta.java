@@ -51,4 +51,15 @@ public class Conta {
         saldo = 0.0f;
         limite = 0.0f;
     }
+    
+    public void saque(int valor){
+        
+        if((this.limite * -1) >= saldo){
+            this.saldo = this.saldo - valor;
+        }
+    }
+    
+    public void deposito(int valor){
+        this.saldo = this.saldo + valor;
+    }
 }
