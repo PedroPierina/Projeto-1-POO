@@ -3,7 +3,7 @@ package contateste;
 public class ContaEspecial extends Conta{
     private float limiteNegativo;
     
-    public void ContaEspecial(String nome, int numero, float saldo, float limite, float limiteNegativo){
+    public ContaEspecial(String nome, int numero, float saldo, float limite, float limiteNegativo){
         super(nome, numero, saldo, limite);
         this.limiteNegativo = limiteNegativo;        
     }

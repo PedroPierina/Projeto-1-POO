@@ -38,14 +38,14 @@ public class Conta {
         this.limite = limite;
     }
     
-    public void Conta(String nome, int numero, float saldo, float limite){
+    public Conta(String nome, int numero, float saldo, float limite){
         this.nome = nome;
         this.numero = numero;
         this.saldo = saldo;
         this.limite = limite;
     }
     
-    public void Conta(){
+    public Conta(){
         nome = "Sem nome";
         numero = 0;
         saldo = 0.0f;
