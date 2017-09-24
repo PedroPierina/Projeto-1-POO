@@ -1,10 +1,10 @@
 package contateste;
 
 public class Conta {
-    private String nome;
-    private int numero;
-    private float saldo;
-    private float limite;
+    protected String nome;
+    protected int numero;
+    protected float saldo;
+    protected float limite;
 
     public String getNome() {
         return nome;

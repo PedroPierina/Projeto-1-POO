@@ -121,7 +121,7 @@ public class ContaTeste {
                         for(int j = 0; j < i; j++){
                             if(c[j].getNumero() == numero){
                                achei = 1;
-                               System.out.printf("%.2f\n\n", c[j].getSaldo());
+                               System.out.printf("\nSaldo = %.2f\n\n", c[j].getSaldo());
                             }
                         }
                         if(achei == 0){
@@ -142,6 +142,7 @@ public class ContaTeste {
                               valor = input.nextInt();
                               
                               c[j].deposito(valor);
+                              System.out.println("\nDeposito feito com sucesso!!!\n");
                             }
                        }
                        if(achei == 0){
@@ -158,9 +159,10 @@ public class ContaTeste {
                         for(int j = 0; j < i; j++){
                             if(c[j].getNumero() == numero){
                               achei = 1;
-                              System.out.println("Insira o valor do saque");
+                              System.out.printf("Insira o valor do saque: ");
                               valor = input.nextInt();
                               c[j].saque(valor);
+                              System.out.println("\nSaque feito com sucesso!!!\n");
                             }
                         }
                         
