@@ -41,10 +41,23 @@ public class ContaTeste {
                        saldo = input.nextFloat();
                        System.out.printf("Insira o limite da conta: ");
                        limite = input.nextFloat();
-                       c[i] = new ContaSimples(nome, numero, saldo, limite);
-                       i++;
-                       System.out.println("Conta criada com sucesso!!!\n");
+                       
+                       for(int j = 0; j < i; j++){
+                            if(c[j].getNumero() == numero){
+                               achei = 1;
+                            }
+                        }
+                        if(achei == 1){
+                            System.out.println("Conta ja existe!!!");
+                        }
+                        else{
+                            c[i] = new ContaSimples(nome, numero, saldo, limite);
+                            i++;
+                            System.out.println("Conta criada com sucesso!!!\n");
+                       }
+                       achei = 0;
                        break;
+                       
                     case 2:
                        System.out.printf("Insira o nome do titular: ");
                        nome = input.next();
@@ -56,10 +69,23 @@ public class ContaTeste {
                        limite = input.nextFloat();
                        System.out.printf("Insira o limite dos saques negativos: ");
                        limiteNegativo = input.nextFloat();
-                       c[i] = new ContaEspecial(nome, numero, saldo, limite, limiteNegativo);
-                       i++;
-                       System.out.println("Conta criada com sucesso!!!\n");
+                       
+                        for(int j = 0; j < i; j++){
+                            if(c[j].getNumero() == numero){
+                               achei = 1;
+                            }
+                        }
+                        if(achei == 1){
+                            System.out.println("Conta ja existe!!!");
+                        }
+                        else{
+                            c[i] = new ContaEspecial(nome, numero, saldo, limite, limiteNegativo);
+                            i++;
+                            System.out.println("Conta criada com sucesso!!!\n");
+                        }
+                        achei = 0;
                        break;
+                       
                     case 3:
                        System.out.printf("Insira o nome do titular: ");
                        nome = input.next();
@@ -71,23 +97,35 @@ public class ContaTeste {
                        limite = input.nextFloat();
                        System.out.printf("Insira a taxa de rendimento: ");
                        rendimento = input.nextFloat();
-                       c[i] = new ContaPoupanca(nome, numero, saldo, limite, rendimento);
-                       i++;
-                       System.out.println("Conta criada com sucesso!!!\n");
-                       break;
+                       
+                       for(int j = 0; j < i; j++){
+                            if(c[j].getNumero() == numero){
+                               achei = 1;
+                            }
+                        }
+                        if(achei == 1){
+                            System.out.println("Conta ja existe!!!");
+                        }
+                        else{
+                            c[i] = new ContaPoupanca(nome, numero, saldo, limite, rendimento);
+                            i++;
+                            System.out.println("Conta criada com sucesso!!!\n");
+                        }
+                        achei = 0;
+                        break;
                        
                     case 4:
                        System.out.printf("Insira o numero da conta: ");
                        numero = input.nextInt();
                                               
-                       for(int j = 0; j < i; j++){
+                        for(int j = 0; j < i; j++){
                             if(c[j].getNumero() == numero){
                                achei = 1;
                                System.out.printf("%.2f\n\n", c[j].getSaldo());
                             }
                         }
                         if(achei == 0){
-                            System.out.println("Conta não encontrada!!!");
+                            System.out.println("Conta não encontrada!!!\n");
                         }
                         achei = 0;
                        
@@ -107,7 +145,7 @@ public class ContaTeste {
                             }
                        }
                        if(achei == 0){
-                            System.out.println("Conta não encontrada!!!");
+                            System.out.println("Conta não encontrada!!!\n");
                         }
                        achei = 0;
                        
@@ -119,11 +157,18 @@ public class ContaTeste {
                        
                         for(int j = 0; j < i; j++){
                             if(c[j].getNumero() == numero){
+                              achei = 1;
                               System.out.println("Insira o valor do saque");
                               valor = input.nextInt();
                               c[j].saque(valor);
-                             }
+                            }
                         }
+                        
+                        if(achei == 0){
+                            System.out.println("Conta não encontrada!!!\n");
+                        }
+                        achei = 0;
+                       
                         break;
                         
                    case 0:
