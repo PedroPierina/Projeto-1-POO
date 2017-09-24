@@ -65,10 +65,5 @@ public class Conta {
     public void deposito(int valor){
         this.saldo = this.saldo + valor;
     }
-
-    void incremento() {
-        
-    }
-
     
 }

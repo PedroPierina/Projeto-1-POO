@@ -175,7 +175,10 @@ public class ContaTeste {
                   
                     case 7:
                         for(int j = 0; j < i; j++){
-                            c[j].incremento();
+                            if(c[j] instanceof ContaPoupanca){
+                            ContaPoupanca aux = (ContaPoupanca)c[j];
+                            aux.incremento();
+                            }
                         }
                         break;
 		
