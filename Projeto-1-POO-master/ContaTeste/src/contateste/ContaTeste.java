@@ -65,8 +65,6 @@ public class ContaTeste {
                        numero = input.nextInt();
                        System.out.printf("Insira o saldo da conta: ");
                        saldo = input.nextFloat();
-                       System.out.printf("Insira o limite da conta: ");
-                       limite = input.nextFloat();
                        System.out.printf("Insira o limite dos saques negativos: ");
                        limiteNegativo = input.nextFloat();
                        
@@ -79,7 +77,7 @@ public class ContaTeste {
                             System.out.println("Conta ja existe!!!");
                         }
                         else{
-                            c[i] = new ContaEspecial(nome, numero, saldo, limite, limiteNegativo);
+                            c[i] = new ContaEspecial(nome, numero, saldo, limiteNegativo);
                             i++;
                             System.out.println("Conta criada com sucesso!!!\n");
                         }

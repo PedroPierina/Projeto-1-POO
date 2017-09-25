@@ -1,6 +1,6 @@
 package contateste;
 
-public class Conta {
+public abstract class Conta {
     protected String nome;
     protected int numero;
     protected float saldo;

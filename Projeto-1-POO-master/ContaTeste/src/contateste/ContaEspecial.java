@@ -3,8 +3,8 @@ package contateste;
 public class ContaEspecial extends Conta{
     private float limiteNegativo;
     
-    public ContaEspecial(String nome, int numero, float saldo, float limite, float limiteNegativo){
-        super(nome, numero, saldo, limite);
+    public ContaEspecial(String nome, int numero, float saldo, float limiteNegativo){
+        super(nome, numero, saldo, 0);
         this.limiteNegativo = limiteNegativo;        
     }
 
@@ -18,7 +18,7 @@ public class ContaEspecial extends Conta{
     
     public void saque(int valor){
         
-        if(valor <= limite && (saldo - valor) >= limiteNegativo){
+        if((saldo - valor) >= limiteNegativo){
             saldo = saldo - valor;           
         }
         else{
