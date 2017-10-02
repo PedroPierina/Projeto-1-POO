@@ -160,7 +160,6 @@ public class ContaTeste {
                               System.out.printf("Insira o valor do saque: ");
                               valor = input.nextInt();
                               c[j].saque(valor);
-                              System.out.println("\nSaque feito com sucesso!!!\n");
                             }
                         }
                         
