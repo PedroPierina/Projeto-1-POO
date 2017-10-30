@@ -9,7 +9,5 @@ public class ExceptionNumero extends Exception{
     public ExceptionNumero(String msg, Throwable cause)
     { 
         super(msg, cause); 
-    }
-
-            
+    }     
 }
