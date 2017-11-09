@@ -7,6 +7,10 @@ public class ContaEspecial extends Conta{
         super(nome, numero, saldo, 0);
         this.limiteNegativo = limiteNegativo;        
     }
+    
+    public ContaEspecial(){
+        super();       
+    }
 
     public float getLimiteNegativo() {
         return limiteNegativo;

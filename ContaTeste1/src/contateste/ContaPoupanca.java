@@ -7,6 +7,10 @@ public class ContaPoupanca extends Conta{
         super(nome, numero, saldo, limite);
         this.rendimento = rendimento; 
     }
+    
+    public ContaPoupanca(){
+        super();
+    }
 
     public float getRendimento() {
         return rendimento;

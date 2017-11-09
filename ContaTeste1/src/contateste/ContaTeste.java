@@ -14,6 +14,7 @@ public class ContaTeste {
         float limite;
         float limiteNegativo;
         float rendimento;
+        CriaFile app = new CriaFile();
         
         /*for(int j = 0; j < 10; j++){
             c[j] = new Conta();
@@ -180,6 +181,9 @@ public class ContaTeste {
                         break;
 		
                    case 0:
+                        app.openFile();
+                        app.addRecords(c, 10);
+                        app.closeFile();
                         sair = 1;
                         break;
                         

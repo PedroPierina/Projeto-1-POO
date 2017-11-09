@@ -26,50 +26,57 @@ public class CriaFile {
         }
     }
     
-    public void addRecords()
+    public void addRecords(Conta c[], int n)
     {
-        ContaTeste record = new ContaTeste();
+        Conta recordSimples = new ContaSimples();
+        ContaEspecial recordEspecial = new ContaEspecial();
+        ContaPoupanca recordPoupanca = new ContaPoupanca();
+        ContaEspecial auxE;
+        ContaPoupanca auxP;
         
-        Scanner input = new Scanner(System.in);
-        
-        System.out.printf("%s\n%s\n%s\n%s\n\n",
-            "To terminate input, type the end-of-file indicator",
-            "when you are prompted to enter input.",
-            "On Unix/Linux/Mac OS X type <ctrl> d then press Enter",
-            "On Windows type <ctrl> z then press Enter");
-        
-        System.out.printf("%s\n%s", "Enter account number (> 0), fisrt name, last name and balance.", "? ");
-        
-        while(input.hasNext())
+        try
         {
-            try
+            for(int i = 0; i < n; i++)
             {
-                record.setAccount(input.nextInt());
-                record.setFirstName(input.nextInt());
-                record.setLastName(input.nextInt());
-                record.setBalance(input.nextInt());  
-                
-                if(record.getAccount() > 0)
-                {
-                    output.format("%d %s %s %.2f\n", record.getAccount()),
-                    record.getFirstName(), record.getLastName(),
-                    record.getBalance());                   
-                }
-                else
-                {
-                    System.out.println("Account number must be greater than 0.");
-                }
+                if(c[i] != null)
+                    if(c[i] instanceof ContaSimples)
+                    {
+                        recordSimples.setNumero(c[i].getNumero());
+                        recordSimples.setNome(c[i].getNome());
+                        recordSimples.setSaldo(c[i].getSaldo());  
+
+                        output.format("Conta - %d Nome - %s Saldo - %.2f |", recordSimples.getNumero(), recordSimples.getNome(), recordSimples.getSaldo());
+                    }
+                    else if(c[i] instanceof ContaEspecial)
+                    {
+                        auxE = (ContaEspecial)c[i];
+                        recordEspecial.setNumero(c[i].getNumero());
+                        recordEspecial.setNome(c[i].getNome());
+                        recordEspecial.setSaldo(c[i].getSaldo());
+                        recordEspecial.setLimiteNegativo(auxE.getLimiteNegativo());
+
+                        output.format("Conta - %d Nome - %s Saldo - %.2f Limite - %.2f |", recordEspecial.getNumero(), recordEspecial.getNome(), recordEspecial.getSaldo(), recordEspecial.getLimiteNegativo());
+                    }
+                    else if(c[i] instanceof ContaPoupanca)
+                    {
+                        auxP = (ContaPoupanca)c[i];
+                        recordPoupanca.setNumero(c[i].getNumero());
+                        recordPoupanca.setNome(c[i].getNome());
+                        recordPoupanca.setSaldo(c[i].getSaldo());
+                        recordPoupanca.setRendimento(auxP.getRendimento());
+
+                        output.format("Conta - %d Nome - %s Saldo - %.2f Rendimento - %.2f |", recordPoupanca.getNumero(), recordPoupanca.getNome(), recordPoupanca.getSaldo(), recordPoupanca.getRendimento());
+                    }
             }
-            catch(FormatterClosedException formatterClosedException)
-            {
-                System.err.println("Error writing to file.");
-                return;
-            }
-            catch(NoSuchElementException elementException)
-            {
-                System.err.println("Invalid input. Please try again.");
-            }              
         }
+        catch(FormatterClosedException formatterClosedException)
+        {
+            System.err.println("\n\nErro na escrita de arquivo!!!\n\n");
+        }
+        /*catch(NoSuchElementException elementException)
+        {
+            System.err.println("\n\nEntrada invalida. Please try again.\n\n");
+        }*/
     }
     
     public void closeFile()
