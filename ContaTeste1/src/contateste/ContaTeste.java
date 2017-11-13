@@ -15,7 +15,11 @@ public class ContaTeste {
         float limiteNegativo;
         float rendimento;
         CriaFile app = new CriaFile();
+        ReadTextFile leitura = new ReadTextFile();
         
+        leitura.openFile();
+        leitura.readRecords(c, 10);
+        leitura.closeFile();
         /*for(int j = 0; j < 10; j++){
             c[j] = new Conta();
         }*/

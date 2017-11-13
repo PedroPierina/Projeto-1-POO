@@ -33,6 +33,7 @@ public class CriaFile {
         ContaPoupanca recordPoupanca = new ContaPoupanca();
         ContaEspecial auxE;
         ContaPoupanca auxP;
+        int codigo;
         
         try
         {
@@ -44,8 +45,8 @@ public class CriaFile {
                         recordSimples.setNumero(c[i].getNumero());
                         recordSimples.setNome(c[i].getNome());
                         recordSimples.setSaldo(c[i].getSaldo());  
-
-                        output.format("Conta - %d Nome - %s Saldo - %.2f |", recordSimples.getNumero(), recordSimples.getNome(), recordSimples.getSaldo());
+                        codigo = 1;
+                        output.format("Codigo - %d Conta - %d Nome - %s Saldo - %.2f|", codigo, recordSimples.getNumero(), recordSimples.getNome(), recordSimples.getSaldo());
                     }
                     else if(c[i] instanceof ContaEspecial)
                     {
@@ -54,8 +55,8 @@ public class CriaFile {
                         recordEspecial.setNome(c[i].getNome());
                         recordEspecial.setSaldo(c[i].getSaldo());
                         recordEspecial.setLimiteNegativo(auxE.getLimiteNegativo());
-
-                        output.format("Conta - %d Nome - %s Saldo - %.2f Limite - %.2f |", recordEspecial.getNumero(), recordEspecial.getNome(), recordEspecial.getSaldo(), recordEspecial.getLimiteNegativo());
+                        codigo = 2;
+                        output.format("Codigo - %d Conta - %d Nome - %s Saldo - %.2f Limite - %.2f|", codigo, recordEspecial.getNumero(), recordEspecial.getNome(), recordEspecial.getSaldo(), recordEspecial.getLimiteNegativo());
                     }
                     else if(c[i] instanceof ContaPoupanca)
                     {
@@ -64,8 +65,8 @@ public class CriaFile {
                         recordPoupanca.setNome(c[i].getNome());
                         recordPoupanca.setSaldo(c[i].getSaldo());
                         recordPoupanca.setRendimento(auxP.getRendimento());
-
-                        output.format("Conta - %d Nome - %s Saldo - %.2f Rendimento - %.2f |", recordPoupanca.getNumero(), recordPoupanca.getNome(), recordPoupanca.getSaldo(), recordPoupanca.getRendimento());
+                        codigo = 3;
+                        output.format("Codigo - %d Conta - %d Nome - %s Saldo - %.2f Rendimento - %.2f |", codigo, recordPoupanca.getNumero(), recordPoupanca.getNome(), recordPoupanca.getSaldo(), recordPoupanca.getRendimento());
                     }
             }
         }
