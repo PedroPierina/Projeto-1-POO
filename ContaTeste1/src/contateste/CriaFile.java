@@ -46,7 +46,7 @@ public class CriaFile {
                         recordSimples.setNome(c[i].getNome());
                         recordSimples.setSaldo(c[i].getSaldo());  
                         codigo = 1;
-                        output.format("Codigo - %d Conta - %d Nome - %s Saldo - %.2f|", codigo, recordSimples.getNumero(), recordSimples.getNome(), recordSimples.getSaldo());
+                        output.format("%d %d %s %.2f\n", codigo, recordSimples.getNumero(), recordSimples.getNome(), recordSimples.getSaldo());
                     }
                     else if(c[i] instanceof ContaEspecial)
                     {
@@ -56,7 +56,7 @@ public class CriaFile {
                         recordEspecial.setSaldo(c[i].getSaldo());
                         recordEspecial.setLimiteNegativo(auxE.getLimiteNegativo());
                         codigo = 2;
-                        output.format("Codigo - %d Conta - %d Nome - %s Saldo - %.2f Limite - %.2f|", codigo, recordEspecial.getNumero(), recordEspecial.getNome(), recordEspecial.getSaldo(), recordEspecial.getLimiteNegativo());
+                        output.format("%d %d %s %.2f %.2f\n", codigo, recordEspecial.getNumero(), recordEspecial.getNome(), recordEspecial.getSaldo(), recordEspecial.getLimiteNegativo());
                     }
                     else if(c[i] instanceof ContaPoupanca)
                     {
@@ -66,7 +66,7 @@ public class CriaFile {
                         recordPoupanca.setSaldo(c[i].getSaldo());
                         recordPoupanca.setRendimento(auxP.getRendimento());
                         codigo = 3;
-                        output.format("Codigo - %d Conta - %d Nome - %s Saldo - %.2f Rendimento - %.2f |", codigo, recordPoupanca.getNumero(), recordPoupanca.getNome(), recordPoupanca.getSaldo(), recordPoupanca.getRendimento());
+                        output.format("%d %d %s %.2f %.2f\n", codigo, recordPoupanca.getNumero(), recordPoupanca.getNome(), recordPoupanca.getSaldo(), recordPoupanca.getRendimento());
                     }
             }
         }

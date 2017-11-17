@@ -20,6 +20,7 @@ public class ContaTeste {
         leitura.openFile();
         leitura.readRecords(c, 10);
         leitura.closeFile();
+        
         /*for(int j = 0; j < 10; j++){
             c[j] = new Conta();
         }*/
