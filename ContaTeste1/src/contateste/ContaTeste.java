@@ -6,12 +6,11 @@ public class ContaTeste {
 
     public static void main(String[] args) {
         int sair = 0;
-        int o = 0, i = 0, valor, achei = 0;
+        int o = 0, i, valor, achei = 0;
         Conta c[] = new Conta[10];
         String nome;
         int numero;
         float saldo;
-        float limite;
         float limiteNegativo;
         float rendimento;
         CriaFile app = new CriaFile();
@@ -20,11 +19,8 @@ public class ContaTeste {
         leitura.openFile();
         leitura.readRecords(c, 10);
         leitura.closeFile();
-        
-        /*for(int j = 0; j < 10; j++){
-            c[j] = new Conta();
-        }*/
-        
+        i = Conta.getNumeroDeContas();
+        System.out.printf("%d\n", i);
         Scanner input = new Scanner(System.in);
         
         while(sair != 1){
@@ -32,9 +28,9 @@ public class ContaTeste {
             System.out.println("2- Criar uma conta especial");
             System.out.println("3- Criar uma conta poupanca");
             System.out.println("4- Consultar saldo");
-            System.out.println("5 - Deposito");
-            System.out.println("6 - Saque");
-            System.out.println("7 - Incremento de rendimento");
+            System.out.println("5- Deposito");
+            System.out.println("6- Saque");
+            System.out.println("7- Incremento de rendimento");
             System.out.println("0- Sair");
             o = input.nextInt();
             
@@ -46,7 +42,6 @@ public class ContaTeste {
                     numero = input.nextInt();
                     System.out.printf("Insira o saldo da conta: ");
                     saldo = input.nextFloat();
-                    limite = 0;
 
                     for(int j = 0; j < i; j++){
                          if(c[j].getNumero() == numero){
@@ -57,7 +52,7 @@ public class ContaTeste {
                          System.out.println("Conta ja existe!!!");
                      }
                      else{
-                         c[i] = new ContaSimples(nome, numero, saldo, limite);
+                         c[i] = new ContaSimples(nome, numero, saldo);
                          i++;
                          System.out.println("Conta criada com sucesso!!!\n");
                     }
@@ -97,8 +92,6 @@ public class ContaTeste {
                        numero = input.nextInt();
                        System.out.printf("Insira o saldo da conta: ");
                        saldo = input.nextFloat();
-                       System.out.printf("Insira o limite da conta: ");
-                       limite = input.nextFloat();
                        System.out.printf("Insira a taxa de rendimento: ");
                        rendimento = input.nextFloat();
                        
@@ -111,7 +104,7 @@ public class ContaTeste {
                             System.out.println("Conta ja existe!!!");
                         }
                         else{
-                            c[i] = new ContaPoupanca(nome, numero, saldo, limite, rendimento);
+                            c[i] = new ContaPoupanca(nome, numero, saldo, rendimento);
                             i++;
                             System.out.println("Conta criada com sucesso!!!\n");
                         }

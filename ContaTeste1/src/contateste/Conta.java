@@ -4,7 +4,7 @@ public abstract class Conta {
     protected String nome;
     protected int numero;
     protected float saldo;
-    protected float limite;
+    static private int numeroDeContas;
 
     public String getNome() {
         return nome;
@@ -18,10 +18,6 @@ public abstract class Conta {
         return saldo;
     }
 
-    public float getLimite() {
-        return limite;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -33,23 +29,25 @@ public abstract class Conta {
     public void setSaldo(float saldo) {
         this.saldo = saldo;
     }
-
-    public void setLimite(float limite) {
-        this.limite = limite;
-    }
     
-    public Conta(String nome, int numero, float saldo, float limite){
+    public Conta(String nome, int numero, float saldo){
         this.nome = nome;
         this.numero = numero;
         this.saldo = saldo;
-        this.limite = limite;
+    }
+
+    static public int getNumeroDeContas() {
+        return numeroDeContas;
+    }
+
+    static public void setNumeroDeContas(int numeroDeContas) {
+        Conta.numeroDeContas = numeroDeContas;
     }
     
     public Conta(){
         nome = "Sem nome";
         numero = 0;
         saldo = 0.0f;
-        limite = 0.0f;
     }
     
     public void saque(int valor){

@@ -24,45 +24,45 @@ public class ReadTextFile {
         Conta recordSimples = new ContaSimples();
         ContaEspecial recordEspecial = new ContaEspecial();
         ContaPoupanca recordPoupanca = new ContaPoupanca();
-        //ContaEspecial auxE;
-        //ContaPoupanca auxP;
-
-        int count = 0, zero = 0, teste ;
-        // int auxCodigo;
+        int count = 0, teste ;
+        
         try {
             while (input.hasNext()) {
                 teste = input.nextInt();
-                if (teste == 1) {
-
+                if (teste == 1) 
+                {
                     recordSimples.setNumero(input.nextInt());
                     recordSimples.setNome(input.next());
                     recordSimples.setSaldo(input.nextFloat());
-                    recordSimples.setLimite(0);
                     c[count] = recordSimples;
+                    System.out.printf("%d %s %f\n", c[count].getNumero(), c[count].getNome(), c[count].getSaldo()); //teste
                     count++;
-
-                }else{
-                    if(teste == 2){
-                    
+                }
+                else
+                {
+                    if(teste == 2)
+                    {
                         recordEspecial.setNumero(input.nextInt());
                         recordEspecial.setNome(input.next());
                         recordEspecial.setSaldo(input.nextFloat());
-                        recordEspecial.setLimite(input.nextFloat());
+                        recordEspecial.setLimiteNegativo(input.nextFloat());
                         c[count] = recordEspecial;
                         count++;
-                     }else{
-                         if(teste == 3){
-                         
-                             recordPoupanca.setNumero(input.nextInt());
-                            recordPoupanca.setNome(input.next());
-                            recordPoupanca.setSaldo(input.nextFloat());
-                            recordPoupanca.setLimite(zero);
-                            c[count] = recordPoupanca;
-                            count++;
-                        }
+                        System.out.printf("%d %s %f %f\n", recordEspecial.getNumero(), recordEspecial.getNome(), recordEspecial.getSaldo(), recordEspecial.getLimiteNegativo());
+                    }
+                    if(teste == 3)
+                    {
+                        recordPoupanca.setNumero(input.nextInt());
+                        recordPoupanca.setNome(input.next());
+                        recordPoupanca.setSaldo(input.nextFloat());
+                        recordPoupanca.setRendimento(input.nextFloat());
+                        c[count] = recordPoupanca;
+                        count++;
+                        System.out.printf("%d %s %f %f\n", recordPoupanca.getNumero(), recordPoupanca.getNome(), recordPoupanca.getSaldo(), recordPoupanca.getRendimento());
                     }
                 }
             }
+            Conta.setNumeroDeContas(count);
         } catch (NoSuchElementException elementException) {
             System.err.println("Arquivo fora de formatacao");
             input.close();

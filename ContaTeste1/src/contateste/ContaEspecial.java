@@ -4,7 +4,7 @@ public class ContaEspecial extends Conta{
     private float limiteNegativo;
     
     public ContaEspecial(String nome, int numero, float saldo, float limiteNegativo){
-        super(nome, numero, saldo, 0);
+        super(nome, numero, saldo);
         this.limiteNegativo = limiteNegativo;        
     }
     
