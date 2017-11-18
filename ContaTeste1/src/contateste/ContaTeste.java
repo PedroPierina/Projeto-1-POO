@@ -1,6 +1,7 @@
 package contateste;
 
 import java.util.Scanner;
+import javax.swing.JFrame;
 
 public class ContaTeste {
 
@@ -16,14 +17,21 @@ public class ContaTeste {
         CriaFile app = new CriaFile();
         ReadTextFile leitura = new ReadTextFile();
         
-        leitura.openFile();
+        /*leitura.openFile();
         leitura.readRecords(c, 10);
         leitura.closeFile();
         i = Conta.getNumeroDeContas();
-        System.out.printf("%d\n", i);
+        System.out.printf("%d\n", i);*/
         Scanner input = new Scanner(System.in);
         
-        while(sair != 1){
+        ButtonFrame telaInicial = new ButtonFrame();
+        telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        telaInicial.setSize(290, 400);
+        telaInicial.setVisible(true);
+        
+        
+        
+        /*while(sair != 1){
             System.out.println("1- Criar uma conta simples");
             System.out.println("2- Criar uma conta especial");
             System.out.println("3- Criar uma conta poupanca");
@@ -188,7 +196,7 @@ public class ContaTeste {
                    default:
                         System.out.println("Entrada invalida!");
                }
-        }
+        }*/
     }
     
 }
