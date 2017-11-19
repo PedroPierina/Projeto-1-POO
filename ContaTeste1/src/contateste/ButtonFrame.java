@@ -4,18 +4,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.JButton;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class ButtonFrame extends JFrame{
-    private JButton criaContaJButton; //botao apenas com texto
+    private JButton criaContaJButton;
     private JButton consultaJButton;
     private JButton saqueJButton;
     private JButton depositoJButton;
     private JButton rendimentoJButton;
     
-    //buttonframe adiciona jbuttons ao jframe
     public ButtonFrame()
     {
         super("Contas.exe");
@@ -27,11 +24,11 @@ public class ButtonFrame extends JFrame{
         DepositoHandler depositoHandler = new DepositoHandler();
         RendimentoHandler rendimentoHandler = new RendimentoHandler();
         
-        criaContaJButton = new JButton("Cria Conta");
+        criaContaJButton = new JButton("Criar Conta");
         add(criaContaJButton);
         criaContaJButton.addActionListener(criaHandler);
         
-        consultaJButton = new JButton("Consulta Saldo");
+        consultaJButton = new JButton("Consultar Saldo");
         add(consultaJButton);
         consultaJButton.addActionListener(consultaHandler);
         
@@ -43,9 +40,10 @@ public class ButtonFrame extends JFrame{
         add(depositoJButton);
         depositoJButton.addActionListener(depositoHandler);
         
-        rendimentoJButton = new JButton("rendimentoHandler");
+        rendimentoJButton = new JButton("Rendimento");
         add(rendimentoJButton);
-        rendimentoJButton.addActionListener(criaHandler);
+        rendimentoJButton.addActionListener(rendimentoHandler);
+        
     }
     
     private class CriaHandler implements ActionListener
@@ -54,8 +52,7 @@ public class ButtonFrame extends JFrame{
         public void actionPerformed(ActionEvent event)
         {
             CriaTela telaCria = new CriaTela();
-            telaCria.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            telaCria.setSize(500, 500);
+            telaCria.setSize(300, 300);
             telaCria.setVisible(true);
         }
     }
@@ -64,7 +61,9 @@ public class ButtonFrame extends JFrame{
         @Override
         public void actionPerformed(ActionEvent event)
         {
-            JOptionPane.showMessageDialog(ButtonFrame.this, String.format("You pressed: %s", event.getActionCommand()));
+            FrameConsulta consultar = new FrameConsulta();
+            consultar.setSize(300, 300);
+            consultar.setVisible(true);
         }
     }
     private class SaqueHandler implements ActionListener
@@ -72,7 +71,9 @@ public class ButtonFrame extends JFrame{
         @Override
         public void actionPerformed(ActionEvent event)
         {
-            JOptionPane.showMessageDialog(ButtonFrame.this, String.format("You pressed: %s", event.getActionCommand()));
+            FrameSaque saque = new FrameSaque();
+            saque.setSize(300, 300);
+            saque.setVisible(true);
         }
     }
     private class DepositoHandler implements ActionListener
@@ -80,7 +81,9 @@ public class ButtonFrame extends JFrame{
         @Override
         public void actionPerformed(ActionEvent event)
         {
-            JOptionPane.showMessageDialog(ButtonFrame.this, String.format("You pressed: %s", event.getActionCommand()));
+            FrameDeposito deposito = new FrameDeposito();
+            deposito.setSize(300, 300);
+            deposito.setVisible(true);
         }
     }
     private class RendimentoHandler implements ActionListener
@@ -88,7 +91,8 @@ public class ButtonFrame extends JFrame{
         @Override
         public void actionPerformed(ActionEvent event)
         {
-            JOptionPane.showMessageDialog(ButtonFrame.this, String.format("You pressed: %s", event.getActionCommand()));
+            Banco banco = Banco.getInstance();
+            banco.rendimento();
         }
     }
    

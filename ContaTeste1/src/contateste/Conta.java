@@ -50,7 +50,7 @@ public abstract class Conta {
         saldo = 0.0f;
     }
     
-    public void saque(int valor){
+    public int saque(float valor){
         
         /*if(0 <= (this.getSaldo() - valor))
         {
@@ -65,18 +65,20 @@ public abstract class Conta {
         try{
             if((saldo - valor) >= 0){
                 this.setSaldo(this.getSaldo() - valor);
-                System.out.println("\n\nSaque feito com sucesso!!!\n\n");
+                //System.out.println("\n\nSaque feito com sucesso!!!\n\n");
+                return 0;
             }
             else{
                 throw new ExceptionNumero("");
             }
         }
         catch(ExceptionNumero exceptionNumero){
-            System.out.println("\nValor muito alto!!!\n");
+            //System.out.println("\nValor muito alto!!!\n");
+            return -1;
         }
     }
     
-    public void deposito(int valor){
+    public void deposito(float valor){
         this.saldo = this.saldo + valor;
     }
     

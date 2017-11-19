@@ -23,7 +23,7 @@ public class ContaPoupanca extends Conta{
     public void incremento(){
         float valor;
         
-        valor = this.getSaldo() + (this.getSaldo() * this.getRendimento()); 
+        valor = this.getSaldo() + (this.getSaldo() * (this.getRendimento()/100)); 
         
         this.setSaldo(valor);
     }

@@ -20,13 +20,15 @@ public class ContaEspecial extends Conta{
         this.limiteNegativo = limiteNegativo;
     }
     
-    public void saque(int valor){
+    public int saque(float valor){
         
         if((saldo - valor) >= limiteNegativo){
-            saldo = saldo - valor;           
+            saldo = saldo - valor;   
+            return 0;
         }
         else{
-            System.out.println("\nErro ao sacar!!!\n");
+            //System.out.println("\nErro ao sacar!!!\n");
+            return -1;
         }
     }
     
