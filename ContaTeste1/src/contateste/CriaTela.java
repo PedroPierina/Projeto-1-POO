@@ -56,8 +56,8 @@ public class CriaTela extends JFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
             FrameSimples contaSimples = new FrameSimples();
-            contaSimples.setSize(500, 500);
-            contaSimples.setLocation(700, 250);
+            contaSimples.setSize(500, 250);
+            contaSimples.setLocationRelativeTo(null);
             contaSimples.setVisible(true);
             dispose();
         }
@@ -67,8 +67,8 @@ public class CriaTela extends JFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
             FrameEspecial contaEspecial = new FrameEspecial();
-            contaEspecial.setSize(500, 500);
-            contaEspecial.setLocation(700, 250);
+            contaEspecial.setSize(500, 250);
+            contaEspecial.setLocationRelativeTo(null);
             contaEspecial.setVisible(true);
             dispose();
         }
@@ -78,8 +78,8 @@ public class CriaTela extends JFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
             FramePoupanca contaPoupanca = new FramePoupanca();
-            contaPoupanca.setSize(500, 500);
-            contaPoupanca.setLocation(700, 250);
+            contaPoupanca.setSize(500, 250);
+            contaPoupanca.setLocationRelativeTo(null);
             contaPoupanca.setVisible(true);
             setVisible(false);
         }

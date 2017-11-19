@@ -76,8 +76,8 @@ public class ButtonFrame extends JFrame{
         public void actionPerformed(ActionEvent event)
         {
             CriaTela telaCria = new CriaTela();
-            telaCria.setSize(500, 500);
-            telaCria.setLocation(700, 250);
+            telaCria.setSize(500, 250);
+            telaCria.setLocationRelativeTo(null);
             //telaCria.setBackground(Color.BLUE);
             telaCria.setVisible(true);
         }
@@ -88,8 +88,8 @@ public class ButtonFrame extends JFrame{
         public void actionPerformed(ActionEvent event)
         {
             FrameConsulta consultar = new FrameConsulta();
-            consultar.setSize(500, 500);
-            consultar.setLocation(700, 250);
+            consultar.setSize(500, 250);
+            consultar.setLocationRelativeTo(null);
             consultar.setVisible(true);
         }
     }
@@ -99,8 +99,8 @@ public class ButtonFrame extends JFrame{
         public void actionPerformed(ActionEvent event)
         {
             FrameSaque saque = new FrameSaque();
-            saque.setSize(500, 500);
-            saque.setLocation(700, 250);
+            saque.setSize(500, 250);
+            saque.setLocationRelativeTo(null);
             saque.setVisible(true);
         }
     }
@@ -110,8 +110,8 @@ public class ButtonFrame extends JFrame{
         public void actionPerformed(ActionEvent event)
         {
             FrameDeposito deposito = new FrameDeposito();
-            deposito.setSize(500, 500);
-            deposito.setLocation(700, 250);
+            deposito.setSize(500, 250);
+            deposito.setLocationRelativeTo(null);
             deposito.setVisible(true);
         }
     }
