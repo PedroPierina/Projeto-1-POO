@@ -7,8 +7,13 @@ public class Banco {
     private static Banco instance = new Banco();
     Collection<Conta> contas = new ArrayList();
     int sucedido;
+    ReadTextFile leitura = new ReadTextFile();
+    CriaFile write = new CriaFile();
 
     private Banco() {
+        leitura.openFile();
+        leitura.readRecords(contas);
+        leitura.closeFile();
     }
 
     public static Banco getInstance() {
@@ -67,5 +72,11 @@ public class Banco {
                 ((ContaPoupanca) c).incremento();
             }
         }
+    }
+    
+    public void gravar(){
+        write.openFile();
+        write.addRecords(contas);
+        write.closeFile();
     }
 }

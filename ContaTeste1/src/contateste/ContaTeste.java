@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 public class ContaTeste {
 
     public static void main(String[] args) {
-        int sair = 0;
+        /*int sair = 0;
         int o = 0, i, valor, achei = 0;
         Conta c[] = new Conta[10];
         String nome;
@@ -15,14 +15,12 @@ public class ContaTeste {
         float limiteNegativo;
         float rendimento;
         CriaFile app = new CriaFile();
-        ReadTextFile leitura = new ReadTextFile();
+        ReadTextFile leitura = new ReadTextFile();*/
         
-        /*leitura.openFile();
-        leitura.readRecords(c, 10);
-        leitura.closeFile();
-        i = Conta.getNumeroDeContas();
-        System.out.printf("%d\n", i);*/
-        Scanner input = new Scanner(System.in);
+        
+        /*i = Conta.getNumeroDeContas();
+        System.out.printf("%d\n", i);
+        Scanner input = new Scanner(System.in);*/
         
         ButtonFrame telaInicial = new ButtonFrame();
         telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -187,9 +185,9 @@ public class ContaTeste {
                         break;
 		
                    case 0:
-                        app.openFile();
-                        app.addRecords(c, 10);
-                        app.closeFile();
+                            app.openFile();
+                            app.addRecords(c, 10);
+                            app.closeFile();
                         sair = 1;
                         break;
                         

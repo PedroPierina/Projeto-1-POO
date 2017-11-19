@@ -12,6 +12,7 @@ public class ButtonFrame extends JFrame{
     private JButton saqueJButton;
     private JButton depositoJButton;
     private JButton rendimentoJButton;
+    private JButton sair;
     
     public ButtonFrame()
     {
@@ -23,6 +24,7 @@ public class ButtonFrame extends JFrame{
         SaqueHandler saqueHandler = new SaqueHandler();
         DepositoHandler depositoHandler = new DepositoHandler();
         RendimentoHandler rendimentoHandler = new RendimentoHandler();
+        SairHandler sairHandler = new SairHandler();
         
         criaContaJButton = new JButton("Criar Conta");
         add(criaContaJButton);
@@ -44,6 +46,9 @@ public class ButtonFrame extends JFrame{
         add(rendimentoJButton);
         rendimentoJButton.addActionListener(rendimentoHandler);
         
+        sair = new JButton("Sair");
+        add(sair);
+        sair.addActionListener(sairHandler);
     }
     
     private class CriaHandler implements ActionListener
@@ -93,6 +98,16 @@ public class ButtonFrame extends JFrame{
         {
             Banco banco = Banco.getInstance();
             banco.rendimento();
+        }
+    }
+    private class SairHandler implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent event)
+        {
+            Banco banco = Banco.getInstance();
+            banco.gravar();
+            dispose();
         }
     }
    

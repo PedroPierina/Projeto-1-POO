@@ -1,10 +1,7 @@
 package contateste;
 import java.io.FileNotFoundException;
 import java.lang.SecurityException;
-import java.util.Formatter;
-import java.util.FormatterClosedException;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.util.*;
 
 public class CriaFile {
     private Formatter output; 
@@ -26,7 +23,7 @@ public class CriaFile {
         }
     }
     
-    public void addRecords(Conta c[], int n)
+    public void addRecords(Collection c)
     {
         Conta recordSimples = new ContaSimples();
         ContaEspecial recordEspecial = new ContaEspecial();
@@ -37,33 +34,33 @@ public class CriaFile {
         
         try
         {
-            for(int i = 0; i < n; i++)
+            for(Object conta : c)
             {
-                if(c[i] != null)
-                    if(c[i] instanceof ContaSimples)
+                if(conta != null)
+                    if(conta instanceof ContaSimples)
                     {
-                        recordSimples.setNumero(c[i].getNumero());
-                        recordSimples.setNome(c[i].getNome());
-                        recordSimples.setSaldo(c[i].getSaldo());  
+                        recordSimples.setNumero(((ContaSimples) conta).getNumero());
+                        recordSimples.setNome(((ContaSimples) conta).getNome());
+                        recordSimples.setSaldo(((ContaSimples) conta).getSaldo());  
                         codigo = 1;
                         output.format("%d %d %s %.2f\n", codigo, recordSimples.getNumero(), recordSimples.getNome(), recordSimples.getSaldo());
                     }
-                    else if(c[i] instanceof ContaEspecial)
+                    else if(conta instanceof ContaEspecial)
                     {
-                        auxE = (ContaEspecial)c[i];
-                        recordEspecial.setNumero(c[i].getNumero());
-                        recordEspecial.setNome(c[i].getNome());
-                        recordEspecial.setSaldo(c[i].getSaldo());
+                        auxE = (ContaEspecial)conta;
+                        recordEspecial.setNumero(((ContaEspecial) conta).getNumero());
+                        recordEspecial.setNome(((ContaEspecial) conta).getNome());
+                        recordEspecial.setSaldo(((ContaEspecial) conta).getSaldo());
                         recordEspecial.setLimiteNegativo(auxE.getLimiteNegativo());
                         codigo = 2;
                         output.format("%d %d %s %.2f %.2f\n", codigo, recordEspecial.getNumero(), recordEspecial.getNome(), recordEspecial.getSaldo(), recordEspecial.getLimiteNegativo());
                     }
-                    else if(c[i] instanceof ContaPoupanca)
+                    else if(conta instanceof ContaPoupanca)
                     {
-                        auxP = (ContaPoupanca)c[i];
-                        recordPoupanca.setNumero(c[i].getNumero());
-                        recordPoupanca.setNome(c[i].getNome());
-                        recordPoupanca.setSaldo(c[i].getSaldo());
+                        auxP = (ContaPoupanca)conta;
+                        recordPoupanca.setNumero(((ContaPoupanca) conta).getNumero());
+                        recordPoupanca.setNome(((ContaPoupanca) conta).getNome());
+                        recordPoupanca.setSaldo(((ContaPoupanca) conta).getSaldo());
                         recordPoupanca.setRendimento(auxP.getRendimento());
                         codigo = 3;
                         output.format("%d %d %s %.2f %.2f\n", codigo, recordPoupanca.getNumero(), recordPoupanca.getNome(), recordPoupanca.getSaldo(), recordPoupanca.getRendimento());
