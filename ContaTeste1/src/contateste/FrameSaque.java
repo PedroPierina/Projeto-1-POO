@@ -1,13 +1,8 @@
 package contateste;
 
-import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JOptionPane;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 import java.lang.NumberFormatException;
 
 public class FrameSaque extends JFrame {
@@ -21,25 +16,51 @@ public class FrameSaque extends JFrame {
 
     public FrameSaque() {
         super("Saque");
-        setLayout(new FlowLayout());
+        setLayout(new GridBagLayout());
+        GridBagConstraints constraint = new GridBagConstraints();
 
         numeroLabel = new JLabel("Numero Da Conta");
-        add(numeroLabel);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 0;
+        constraint.gridy = 0;
+        add(numeroLabel, constraint);
         numero = new JTextField(10);
-        add(numero);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 1;
+        constraint.gridy = 0;
+        constraint.gridwidth = 3;
+        add(numero, constraint);
         
         valorLabel = new JLabel("Valor");
-        add(valorLabel);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 0;
+        constraint.gridy = 1;
+        constraint.gridwidth = 1;
+        add(valorLabel, constraint);
         valor = new JTextField(10);
-        add(valor);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 1;
+        constraint.gridy = 1;
+        constraint.gridwidth = 3;
+        add(valor, constraint);
 
         ok = new JButton("Ok");
-        add(ok);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 1;
+        constraint.gridy = 2;
+        constraint.gridwidth = 3;
+        ok.setForeground(Color.GREEN);
+        add(ok, constraint);
         OkHandler okHandler = new OkHandler();
         ok.addActionListener(okHandler);
 
         cancel = new JButton("Cancel");
-        add(cancel);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 0;
+        constraint.gridy = 2;
+        constraint.gridwidth = 1;
+        cancel.setForeground(Color.red);
+        add(cancel, constraint);
         CancelHandler cancelHandler = new CancelHandler();
         cancel.addActionListener(cancelHandler);
     }

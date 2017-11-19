@@ -1,22 +1,19 @@
 package contateste;
 
-import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class CriaTela extends JFrame {
-    private JButton simplesJButton; //botao apenas com texto
+    private JButton simplesJButton;
     private JButton especialJButton;
     private JButton poupancaJButton;
     private JButton cancel;
 
-    //buttonframe adiciona jbuttons ao jframe
     public CriaTela() {
         super("Contas.exe");
-        setLayout(new FlowLayout());
+        setLayout(new GridBagLayout());
+        GridBagConstraints constraint = new GridBagConstraints();
 
         SimplesHandler simplesHandler = new SimplesHandler();
         EspecialHandler especialHandler = new EspecialHandler();
@@ -24,19 +21,33 @@ public class CriaTela extends JFrame {
         CancelHandler cancelHandler = new CancelHandler();
 
         simplesJButton = new JButton("ContaSimples");
-        add(simplesJButton);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 0;
+        constraint.gridy = 0;
+        add(simplesJButton, constraint);
         simplesJButton.addActionListener(simplesHandler);
 
         especialJButton = new JButton("ContaEspecial");
-        add(especialJButton);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 1;
+        constraint.gridy = 0;
+        add(especialJButton, constraint);
         especialJButton.addActionListener(especialHandler);
 
         poupancaJButton = new JButton("ContaPoupança");
-        add(poupancaJButton);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 2;
+        constraint.gridy = 0;
+        add(poupancaJButton, constraint);
         poupancaJButton.addActionListener(poupancaHandler);
 
         cancel = new JButton("Cancel");
-        add(cancel);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 1;
+        constraint.gridy = 1;
+        //cancel.setBackground(Color.red);
+        cancel.setForeground(Color.red);
+        add(cancel, constraint);
         cancel.addActionListener(cancelHandler);
 
     }
@@ -45,7 +56,8 @@ public class CriaTela extends JFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
             FrameSimples contaSimples = new FrameSimples();
-            contaSimples.setSize(200, 300);
+            contaSimples.setSize(500, 500);
+            contaSimples.setLocation(700, 250);
             contaSimples.setVisible(true);
             dispose();
         }
@@ -55,7 +67,8 @@ public class CriaTela extends JFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
             FrameEspecial contaEspecial = new FrameEspecial();
-            contaEspecial.setSize(400, 300);
+            contaEspecial.setSize(500, 500);
+            contaEspecial.setLocation(700, 250);
             contaEspecial.setVisible(true);
             dispose();
         }
@@ -65,7 +78,8 @@ public class CriaTela extends JFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
             FramePoupanca contaPoupanca = new FramePoupanca();
-            contaPoupanca.setSize(400, 300);
+            contaPoupanca.setSize(500, 500);
+            contaPoupanca.setLocation(700, 250);
             contaPoupanca.setVisible(true);
             setVisible(false);
         }

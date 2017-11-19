@@ -1,10 +1,8 @@
 package contateste;
-import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class ButtonFrame extends JFrame{
     private JButton criaContaJButton;
@@ -17,7 +15,8 @@ public class ButtonFrame extends JFrame{
     public ButtonFrame()
     {
         super("Contas.exe");
-        setLayout(new FlowLayout());
+        setLayout(new GridBagLayout());
+        GridBagConstraints constraint = new GridBagConstraints();
         
         CriaHandler criaHandler = new CriaHandler();
         ConsultaHandler consultaHandler = new ConsultaHandler();
@@ -27,27 +26,47 @@ public class ButtonFrame extends JFrame{
         SairHandler sairHandler = new SairHandler();
         
         criaContaJButton = new JButton("Criar Conta");
-        add(criaContaJButton);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 0;
+        constraint.gridy = 0;
+        //constraint.anchor = GridBagConstraints.PAGE_END;
+        add(criaContaJButton, constraint);
         criaContaJButton.addActionListener(criaHandler);
         
         consultaJButton = new JButton("Consultar Saldo");
-        add(consultaJButton);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 1;
+        constraint.gridy = 0;
+        add(consultaJButton, constraint);
         consultaJButton.addActionListener(consultaHandler);
         
         saqueJButton = new JButton("Saque");
-        add(saqueJButton);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 2;
+        constraint.gridy = 0;
+        add(saqueJButton, constraint);
         saqueJButton.addActionListener(saqueHandler);
         
         depositoJButton = new JButton("Deposito");
-        add(depositoJButton);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 0;
+        constraint.gridy = 1;
+        add(depositoJButton, constraint);
         depositoJButton.addActionListener(depositoHandler);
         
         rendimentoJButton = new JButton("Rendimento");
-        add(rendimentoJButton);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 1;
+        constraint.gridy = 1;
+        add(rendimentoJButton, constraint);
         rendimentoJButton.addActionListener(rendimentoHandler);
         
         sair = new JButton("Sair");
-        add(sair);
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.gridx = 2;
+        constraint.gridy = 1;
+        sair.setForeground(Color.red);
+        add(sair, constraint);
         sair.addActionListener(sairHandler);
     }
     
@@ -57,7 +76,9 @@ public class ButtonFrame extends JFrame{
         public void actionPerformed(ActionEvent event)
         {
             CriaTela telaCria = new CriaTela();
-            telaCria.setSize(300, 300);
+            telaCria.setSize(500, 500);
+            telaCria.setLocation(700, 250);
+            //telaCria.setBackground(Color.BLUE);
             telaCria.setVisible(true);
         }
     }
@@ -67,7 +88,8 @@ public class ButtonFrame extends JFrame{
         public void actionPerformed(ActionEvent event)
         {
             FrameConsulta consultar = new FrameConsulta();
-            consultar.setSize(300, 300);
+            consultar.setSize(500, 500);
+            consultar.setLocation(700, 250);
             consultar.setVisible(true);
         }
     }
@@ -77,7 +99,8 @@ public class ButtonFrame extends JFrame{
         public void actionPerformed(ActionEvent event)
         {
             FrameSaque saque = new FrameSaque();
-            saque.setSize(300, 300);
+            saque.setSize(500, 500);
+            saque.setLocation(700, 250);
             saque.setVisible(true);
         }
     }
@@ -87,7 +110,8 @@ public class ButtonFrame extends JFrame{
         public void actionPerformed(ActionEvent event)
         {
             FrameDeposito deposito = new FrameDeposito();
-            deposito.setSize(300, 300);
+            deposito.setSize(500, 500);
+            deposito.setLocation(700, 250);
             deposito.setVisible(true);
         }
     }

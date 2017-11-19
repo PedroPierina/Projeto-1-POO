@@ -24,7 +24,8 @@ public class ContaTeste {
         
         ButtonFrame telaInicial = new ButtonFrame();
         telaInicial.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        telaInicial.setSize(300, 300);
+        telaInicial.setSize(500, 500);
+        telaInicial.setLocation(700 , 250);
         telaInicial.setVisible(true);
         
         
